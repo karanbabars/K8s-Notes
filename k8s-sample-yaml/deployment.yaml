@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: deploy-1
+  labels:
+    app: backend
+spec: 
+    template:
+      metadata:
+        name: dmypod-2
+        labels:
+          tier: front-end
+      spec:
+        containers:
+          - name: dcont-2
+            image: nginx
+    replicas: 2
+    selector:
+      matchLabels:
+        tier: front-end
